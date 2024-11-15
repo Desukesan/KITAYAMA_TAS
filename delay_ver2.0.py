@@ -58,6 +58,9 @@ def move_stage(direction):
         elif mode == 2:  # 原点復帰
             cmd = f'AXI{axisNo}:GO ORG'
         serial_write(cmd)
+
+        #現在地を更新
+        update_status()
     except Exception as e:
         messagebox.showerror("エラー", f"駆動失敗: {e}")
 

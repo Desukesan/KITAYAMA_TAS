@@ -67,7 +67,7 @@ def shutter_switch_motor1():
     operate_motor(arduino, motor_num, steps, direction)
     
     # 次の操作のために方向を切り替え
-    direction_var_motor1.set("1" if direction == "-1" else "-1")
+    direction_var_motor1.set("-1" if direction == "1" else "1")
 
     # シャッター状態を切り替え
     if shutter_state_motor1.get() == "CLOSE":
@@ -136,7 +136,7 @@ steps_entry = tk.Entry(root)  # 角度入力用エントリ
 steps_entry.grid(row=2, column=1)
 
 direction_var = StringVar(value="1")  # 初期値をCWに設定
-direction_var_motor1 = StringVar(value="1")
+direction_var_motor1 = StringVar(value="-1")
 direction_var_motor2 = StringVar(value="1")
 
 tk.Label(root, text="方向:").grid(row=3, column=0)
